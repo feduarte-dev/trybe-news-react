@@ -1,10 +1,11 @@
 import '../styles/header.css';
+import trybeLogo from '../assets/trybe.svg';
 
 function Header() {
   return (
     <div className="header-container">
       <img
-        src="src/public/static/images/trybe.svg"
+        src={ trybeLogo }
         alt="trybe-logo"
         className="trybe-logo"
       />
