@@ -23,10 +23,18 @@ function NewsCards() {
     <>
       <Navbar className="bg-body-tertiary">
         <Nav className="me-auto">
-          <button onClick={ (e) => handleNavbarClick(e) }>Mais Recentes</button>
-          <button onClick={ (e) => handleNavbarClick(e) }>Releases</button>
-          <button onClick={ (e) => handleNavbarClick(e) }>Notícias</button>
-          <button onClick={ (e) => handleNavbarClick(e) }>Favoritos</button>
+          <Nav.Link onClick={ (e) => handleNavbarClick(e) }>
+            Mais Recentes
+          </Nav.Link>
+          <Nav.Link onClick={ (e) => handleNavbarClick(e) }>
+            Releases
+          </Nav.Link>
+          <Nav.Link onClick={ (e) => handleNavbarClick(e) }>
+            Notícias
+          </Nav.Link>
+          <Nav.Link onClick={ (e) => handleNavbarClick(e) }>
+            Favoritos
+          </Nav.Link>
         </Nav>
         <div className="toggle-list-div">
           <label htmlFor="toggle-list" data-testid="toggleList">
