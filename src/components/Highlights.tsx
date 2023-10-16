@@ -18,7 +18,7 @@ function Highlights() {
 
   return (
     <div className="carousel-container">
-      <Carousel>
+      <Carousel slide={ false } indicators={ false }>
         {highlightsList.length > 0
           && highlightsList.map((highlight, index) => (
             <Carousel.Item key={ highlight.id } interval={ 10000 }>

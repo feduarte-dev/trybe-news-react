@@ -13,6 +13,7 @@ function NewsProvider({ children }: NewsProviderProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [visibleCards, setVisibleCards] = useState<number>(3);
   const [isFavoriteTab, setIsFavoriteTab] = useState(false);
+  const [isList, setIsList] = useState<boolean>(false);
   const { getApi } = useFetch();
 
   const fetchAPI = async (URL: string) => {
@@ -25,6 +26,10 @@ function NewsProvider({ children }: NewsProviderProps) {
       setVisibleCards(3);
     }
     setIsLoading(false);
+  };
+
+  const toggleList = () => {
+    setIsList((preIsList) => !preIsList);
   };
 
   const transformImg = (imgJson: string) => {
@@ -105,6 +110,8 @@ function NewsProvider({ children }: NewsProviderProps) {
     visibleCards,
     setCardsList,
     isFavoriteTab,
+    toggleList,
+    isList,
   };
 
   return (

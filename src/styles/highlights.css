@@ -43,3 +43,19 @@
     padding: 3px;
   }
   
+  @media screen and (min-width: 1280px) {
+    .carousel-container {
+      justify-content: center;
+
+
+      display: flex;
+      padding: 20px 20px 0 20px;
+    }
+
+    .carousel-item {
+            /* width: 700px; */
+      padding: 20px 20px 0 20px;
+    }
+  
+    /* Adicione estilos adicionais específicos para 1440px aqui */
+  }

@@ -8,7 +8,7 @@ import { CardPropsType, ReportType } from '../types';
 import { readFavoriteNews, saveFavoriteNews } from '../services/favorites';
 
 function Card({ card }: CardPropsType) {
-  const { transformDate, setCardsList, isFavoriteTab } = useContext(NewsContext);
+  const { transformDate, setCardsList, isFavoriteTab, isList } = useContext(NewsContext);
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function Card({ card }: CardPropsType) {
   };
 
   return (
-    <div className="card-container">
+    <div className={ isList ? 'list card-container' : 'card-container' }>
       <h3>{card.titulo}</h3>
       <p>{card.introducao}</p>
       <span className="publi-date">
@@ -49,7 +49,7 @@ function Card({ card }: CardPropsType) {
             className="details-btn"
             rel="noreferrer"
           >
-            Detalhes
+            Leia mais
           </a>
         </Button>
         <label htmlFor={ card.titulo }>
