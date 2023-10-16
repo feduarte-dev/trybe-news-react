@@ -56,13 +56,13 @@ function NewsProvider({ children }: NewsProviderProps) {
         break;
       case 'Releases':
         fetchAPI(
-          'http://servicodados.ibge.gov.br/api/v3/noticias/?tipo=release',
+          'https://servicodados.ibge.gov.br/api/v3/noticias/?tipo=release',
         );
         setIsFavoriteTab(false);
         break;
       case 'Notícias':
         fetchAPI(
-          'http://servicodados.ibge.gov.br/api/v3/noticias/?tipo=noticia',
+          'https://servicodados.ibge.gov.br/api/v3/noticias/?tipo=noticia',
         );
         setIsFavoriteTab(false);
         break;
