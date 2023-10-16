@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ContextNews from './NewsContext';
 import { ReportType } from '../types';
-import useFetch from '../hooks/useFetch';
+import { getApi } from '../services/getApi';
 
 type NewsProviderProps = {
   children: React.ReactNode;
@@ -14,7 +14,6 @@ function NewsProvider({ children }: NewsProviderProps) {
   const [visibleCards, setVisibleCards] = useState<number>(3);
   const [isFavoriteTab, setIsFavoriteTab] = useState(false);
   const [isList, setIsList] = useState<boolean>(false);
-  const { getApi } = useFetch();
 
   const fetchAPI = async (URL: string) => {
     const result = await getApi(URL);

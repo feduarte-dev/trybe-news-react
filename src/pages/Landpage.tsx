@@ -8,6 +8,7 @@ function Landpage() {
       <Header />
       <Highlights />
       <NewsCards />
+
     </>
   );
 }

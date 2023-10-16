@@ -34,7 +34,10 @@ function Card({ card }: CardPropsType) {
   };
 
   return (
-    <div className={ isList ? 'list card-container' : 'card-container' }>
+    <div
+      className={ isList ? 'list card-container' : 'card-container' }
+      data-testid="cardContainer"
+    >
       <h3>{card.titulo}</h3>
       <p>{card.introducao}</p>
       <span className="publi-date">
@@ -52,7 +55,7 @@ function Card({ card }: CardPropsType) {
             Leia mais
           </a>
         </Button>
-        <label htmlFor={ card.titulo }>
+        <label htmlFor={ card.titulo } data-testid="favBtn">
           <input
             className="fav-input"
             type="checkbox"

@@ -3,7 +3,9 @@ import Landpage from './pages/Landpage';
 
 function App() {
   return (
-    <Landpage />
+    <div data-testid="mainContainer">
+      <Landpage />
+    </div>
   );
 }
 

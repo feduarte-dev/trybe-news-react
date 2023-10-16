@@ -37,7 +37,7 @@ function NewsCards() {
           </Nav.Link>
         </Nav>
         <div className="toggle-list-div">
-          <label htmlFor="toggle-list">
+          <label htmlFor="toggle-list" data-testid="toggleList">
             <input
               className="toogle-list-input"
               type="checkbox"
@@ -63,6 +63,7 @@ function NewsCards() {
           <Card card={ card } key={ index } />
         ))}
       </div>
+      <div data-testid="scroll-reference-point" />
     </>
   );
 }
