@@ -10,14 +10,12 @@ type NewsProviderProps = {
 function NewsProvider({ children }: NewsProviderProps) {
   const [highlightsList, setHighlightsList] = useState<ReportType[]>([]);
   const [cardsList, setCardsList] = useState<ReportType[]>([]);
-  const [isCopied, setIsCopied] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [visibleCards, setVisibleCards] = useState<number>(3);
   const [isFavoriteTab, setIsFavoriteTab] = useState(false);
   const { getApi } = useFetch();
 
   const fetchAPI = async (URL: string) => {
-    // Condicional feita para não recarregar os Destaques ao clicar no navbar
     const result = await getApi(URL);
     if (URL.includes('qtd=100')) {
       setHighlightsList(result.slice(0, 4));
@@ -44,14 +42,6 @@ function NewsProvider({ children }: NewsProviderProps) {
     const result = Math.floor(dateRange / (1000 * 60 * 60 * 24));
     return result > 1 ? `${result} dias atrás` : `${result} dia atrás`;
   }
-
-  const handleClickCopy = async (link: string) => {
-    await navigator.clipboard.writeText(link);
-    setIsCopied(true);
-    setTimeout(() => {
-      setIsCopied(false);
-    }, 2000);
-  };
 
   const handleNavbarClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
@@ -89,20 +79,23 @@ function NewsProvider({ children }: NewsProviderProps) {
   };
 
   const handleScroll = () => {
-    if (
-      window.innerHeight + document.documentElement.scrollTop
-      === document.documentElement.offsetHeight
-    ) {
-      loadMoreCards();
-    }
+    const infiniteScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop
+        === document.documentElement.offsetHeight
+      ) {
+        loadMoreCards();
+      }
+    };
+    window.addEventListener('scroll', infiniteScroll);
+    return () => {
+      window.removeEventListener('scroll', infiniteScroll);
+    };
   };
-  window.addEventListener('scroll', handleScroll);
 
   const context = {
     highlightsList,
     fetchAPI,
-    handleClickCopy,
-    isCopied,
     transformDate,
     transformImg,
     isLoading,

@@ -2,12 +2,10 @@ import '../styles/header.css';
 
 function Header() {
   return (
-    <>
+    <div className="header-container">
       <img src="src/assets/trybe.svg" alt="trybe-logo" className="trybe-logo" />
-      <div className="header-container">
-        <h1 className="site-title">TRYBE NEWS</h1>
-      </div>
-    </>
+      <h1 className="site-title">TRYBE NEWS</h1>
+    </div>
   );
 }
 

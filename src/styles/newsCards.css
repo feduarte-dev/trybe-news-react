@@ -1,11 +1,34 @@
 .card-container {
-    border: 1px solid black;
-    border-radius: 3px;
-    margin: 20px;
-    padding: 20px;
+    padding: 16px 5px;
   }
   
   .cards-btns {
     display: flex;
+    justify-content: space-between;
+    margin: 4px 0 30px;
   }
   
+  .fav-input {
+    display: none;
+  }
+
+  .fav-icon {
+    width: 40px;
+  }
+
+  .navbar-nav {
+    padding: 1px;
+  }
+
+  .navbar {
+    margin-top: 10px;
+  }
+
+  hr {
+    margin-bottom: 0;
+  }
+
+.cardslist-container {
+  padding: 20px;
+ 
+}
