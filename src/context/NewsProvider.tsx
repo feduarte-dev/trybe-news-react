@@ -81,7 +81,6 @@ function NewsProvider({ children }: NewsProviderProps) {
       default:
         break;
     }
-    console.log(isFavoriteTab);
   };
 
   const loadMoreCards = () => {
