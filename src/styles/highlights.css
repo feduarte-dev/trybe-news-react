@@ -1,0 +1,45 @@
+.carousel-container {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .highlight-img {
+    width: 100% !important;
+    height: 250px;
+    border-radius: 3px;
+  }
+  
+  .text-container,
+  .highlight-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+  
+  .carousel-control-next,
+  .carousel-control-prev {
+    align-items: center;
+    height: 250px !important;
+  }
+  
+  .highlights {
+    color: red;
+    font-weight: 500;
+  }
+  
+  .fav-share {
+    background-color: transparent;
+    border: none;
+    padding: 3px;
+  }
+  
+  .copied {
+    padding: 3px;
+  }
+  
+  .details-btn {
+    color: white;
+    text-decoration: none;
+    padding: 3px;
+  }
+  
