@@ -13,7 +13,7 @@ Esse é um projeto criado com as principais tecnologias utilizadas no módulo de
 width=49%>
 </p>
 
-## Link da aplicão
+## Link da aplicação
 [Trybe News - Uma aplicação em React](https://trybe-news-react.vercel.app/)
 
 Se quiser rodar a aplicação:
