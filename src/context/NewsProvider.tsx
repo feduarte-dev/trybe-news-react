@@ -10,9 +10,9 @@ type NewsProviderProps = {
 function NewsProvider({ children }: NewsProviderProps) {
   const [highlightsList, setHighlightsList] = useState<ReportType[]>([]);
   const [cardsList, setCardsList] = useState<ReportType[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [visibleCards, setVisibleCards] = useState<number>(3);
-  const [isFavoriteTab, setIsFavoriteTab] = useState(false);
+  const [visibleCards, setVisibleCards] = useState<number>(4);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isFavoriteTab, setIsFavoriteTab] = useState<boolean>(false);
   const [isList, setIsList] = useState<boolean>(false);
 
   const fetchAPI = async (URL: string) => {
@@ -22,7 +22,7 @@ function NewsProvider({ children }: NewsProviderProps) {
       setCardsList(result.slice(4, -1));
     } else {
       setCardsList(result.slice(4, -1));
-      setVisibleCards(3);
+      setVisibleCards(4);
     }
     setIsLoading(false);
   };
@@ -77,25 +77,17 @@ function NewsProvider({ children }: NewsProviderProps) {
     }
   };
 
-  const loadMoreCards = () => {
-    const newVisibleCards = visibleCards + 3;
-    setVisibleCards(newVisibleCards);
+  const infiniteScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop
+        === document.documentElement.offsetHeight
+    ) {
+      const newVisibleCards = visibleCards + 4;
+      setVisibleCards(newVisibleCards);
+    }
   };
 
-  const handleScroll = () => {
-    const infiniteScroll = () => {
-      if (
-        window.innerHeight + document.documentElement.scrollTop
-        === document.documentElement.offsetHeight
-      ) {
-        loadMoreCards();
-      }
-    };
-    window.addEventListener('scroll', infiniteScroll);
-    return () => {
-      window.removeEventListener('scroll', infiniteScroll);
-    };
-  };
+  window.addEventListener('scroll', infiniteScroll);
 
   const context = {
     highlightsList,
@@ -105,12 +97,12 @@ function NewsProvider({ children }: NewsProviderProps) {
     isLoading,
     cardsList,
     handleNavbarClick,
-    handleScroll,
     visibleCards,
     setCardsList,
     isFavoriteTab,
     toggleList,
     isList,
+    infiniteScroll,
   };
 
   return (

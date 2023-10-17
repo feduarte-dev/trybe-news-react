@@ -1,61 +1,74 @@
 .carousel-container {
-    display: flex;
+  display: flex;
+  padding: 20px 20px 0 20px;
+}
+
+.highlight-img {
+  width: 100%;
+  height: 250px;
+  border-radius: 3px;
+}
+
+.text-container,
+.highlight-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  align-items: center;
+  height: 250px !important;
+}
+
+.highlights {
+  color: rgba(255, 0, 0, 0.75);
+  font-weight: 500;
+}
+
+.details-btn {
+  color: white;
+  text-decoration: none;
+  padding: 3px;
+}
+
+@media screen and (min-width: 1920px) {
+  .carousel-container {
+    justify-content: center;
+  }
+
+  .carousel-item {
     padding: 20px 20px 0 20px;
   }
-  
-  .highlight-img {
-    width: 100% !important;
-    height: 250px;
-    border-radius: 3px;
-  }
-  
-  .text-container,
-  .highlight-info {
+
+  .active.carousel-item {
     display: flex;
-    justify-content: space-between;
-    padding: 5px 0;
+    flex-direction: row;
   }
-  
+
+  .highlight-img {
+    border-radius: 15px;
+    height: 400px;
+    padding: 10px;
+    flex: 1;
+    width: 100%;
+    object-fit: cover;
+    max-height: 100%;
+  }
+
+  .active .card-container {
+    border: none;
+    width: 50%;
+  }
+
+  .active .card-container .cards-btns {
+    z-index: 2;
+  }
+
   .carousel-control-next,
   .carousel-control-prev {
     align-items: center;
-    height: 250px !important;
+    height: auto !important;
   }
-  
-  .highlights {
-    color: red;
-    font-weight: 500;
-  }
-  
-  .fav-share {
-    background-color: transparent;
-    border: none;
-    padding: 3px;
-  }
-  
-  .copied {
-    padding: 3px;
-  }
-  
-  .details-btn {
-    color: white;
-    text-decoration: none;
-    padding: 3px;
-  }
-  
-  @media screen and (min-width: 1280px) {
-    .carousel-container {
-      justify-content: center;
-
-
-      display: flex;
-      padding: 20px 20px 0 20px;
-    }
-
-    .carousel-item {
-            /* width: 700px; */
-      padding: 20px 20px 0 20px;
-    }
-  
-    /* Adicione estilos adicionais específicos para 1440px aqui */
-  }
+}

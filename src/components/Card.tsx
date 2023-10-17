@@ -7,7 +7,7 @@ import NewsContext from '../context/NewsContext';
 import { CardPropsType, ReportType } from '../types';
 import { readFavoriteNews, saveFavoriteNews } from '../services/favorites';
 
-function Card({ card }: CardPropsType) {
+function Card({ card, destaques }: CardPropsType) {
   const { transformDate, setCardsList, isFavoriteTab, isList } = useContext(NewsContext);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -38,6 +38,9 @@ function Card({ card }: CardPropsType) {
       className={ isList ? 'list card-container' : 'card-container' }
       data-testid="cardContainer"
     >
+      {destaques && (
+        <p className="highlights">Destaques</p>
+      )}
       <h3>{card.titulo}</h3>
       <p>{card.introducao}</p>
       <span className="publi-date">
@@ -71,7 +74,10 @@ function Card({ card }: CardPropsType) {
         </label>
       </div>
 
-      <hr />
+      {!destaques && (
+        <hr />
+      )}
+
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import '../styles/newsCards.css';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import Card from './Card';
 import NewsContext from '../context/NewsContext';
 import blocksIcon from '../assets/blocks-icon.svg';
@@ -9,14 +10,10 @@ import listIcon from '../assets/list-icon.svg';
 
 function NewsCards() {
   const { cardsList, fetchAPI, handleNavbarClick,
-    visibleCards, handleScroll, toggleList, isList } = useContext(NewsContext);
+    visibleCards, toggleList, isList, infiniteScroll } = useContext(NewsContext);
 
   useEffect(() => {
     fetchAPI('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
-  }, []);
-
-  useEffect(() => {
-    handleScroll();
   }, [visibleCards]);
 
   return (
@@ -36,6 +33,7 @@ function NewsCards() {
             Favoritos
           </Nav.Link>
         </Nav>
+
         <div className="toggle-list-div">
           <label htmlFor="toggle-list" data-testid="toggleList">
             <input
@@ -58,12 +56,20 @@ function NewsCards() {
           </label>
         </div>
       </Navbar>
+
       <div className="cardslist-container">
-        {cardsList.slice(0, visibleCards).map((card, index) => (
-          <Card card={ card } key={ index } />
-        ))}
+        <InfiniteScroll
+          dataLength={ cardsList.length }
+          next={ infiniteScroll }
+          hasMore
+          loader={ <h4 className="loading">Carregando...</h4> }
+        >
+          {cardsList.slice(0, visibleCards).map((card, index) => (
+            <Card card={ card } key={ index } />
+          ))}
+        </InfiniteScroll>
       </div>
-      <div data-testid="scroll-reference-point" />
+
     </>
   );
 }

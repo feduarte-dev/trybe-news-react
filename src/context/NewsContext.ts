@@ -9,12 +9,12 @@ type NewsContextType = {
   isLoading: boolean;
   cardsList: ReportType[];
   handleNavbarClick: (e: any) => void;
-  handleScroll: () => void;
   visibleCards: number;
   setCardsList: (card: ReportType[]) => void;
   isFavoriteTab: boolean;
   toggleList: () => void;
   isList: boolean;
+  infiniteScroll: () => void
 };
 
 const NewsContext = createContext({} as NewsContextType);
