@@ -14,6 +14,7 @@ function NewsProvider({ children }: NewsProviderProps) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isFavoriteTab, setIsFavoriteTab] = useState<boolean>(false);
   const [isList, setIsList] = useState<boolean>(false);
+  const [isDark, setIsDark] = useState<boolean>(true);
 
   const fetchAPI = async (URL: string) => {
     const result = await getApi(URL);
@@ -44,7 +45,11 @@ function NewsProvider({ children }: NewsProviderProps) {
     const todayDate = new Date();
     const dateRange = Number(todayDate) - Number(reportDate);
     const result = Math.floor(dateRange / (1000 * 60 * 60 * 24));
-    return result > 1 ? `${result} dias atrás` : `${result} dia atrás`;
+    let resultString = '';
+    if (result > 1) resultString = `${result} dias atrás`;
+    else if (result === 0) resultString = 'Hoje';
+    else resultString = `${result} dia atrás`;
+    return resultString;
   }
 
   const handleNavbarClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -77,6 +82,10 @@ function NewsProvider({ children }: NewsProviderProps) {
     }
   };
 
+  const changeTheme = () => {
+    setIsDark((prevTheme) => !prevTheme);
+  };
+
   const infiniteScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop
@@ -103,6 +112,8 @@ function NewsProvider({ children }: NewsProviderProps) {
     toggleList,
     isList,
     infiniteScroll,
+    changeTheme,
+    isDark,
   };
 
   return (

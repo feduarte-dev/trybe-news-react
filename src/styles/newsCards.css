@@ -1,5 +1,6 @@
 .navbar-nav {
   padding: 1px;
+  margin: auto;
 }
 
 .navbar {
@@ -58,6 +59,11 @@ hr {
 @media screen and (min-width: 1920px) {
   .navbar {
     padding: 10px 65px;
+  }
+
+  .navbar-nav {
+    padding: 1px;
+    margin: 0;
   }
 
   .toggle-list-div {

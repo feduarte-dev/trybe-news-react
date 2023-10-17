@@ -15,6 +15,8 @@ type NewsContextType = {
   toggleList: () => void;
   isList: boolean;
   infiniteScroll: () => void
+  changeTheme: () => void
+  isDark: boolean
 };
 
 const NewsContext = createContext({} as NewsContextType);
