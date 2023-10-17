@@ -15,6 +15,14 @@ width=49%>
 ## Link da aplicão
 [Trybe News - Uma aplicação em React](https://trybe-news-react.vercel.app/)
 
+Se quiser rodar a aplicação:
+
+- Faça um clone do repositório
+
+- Rode o comando npm install.
+
+- Rode o comando npm run dev.
+
 ## Gist do Projeto
 Confira [esse link](https://gist.github.com/feduarte-dev/fdeed18cce3fc52fbf74e299b370923a).
 
