@@ -14,6 +14,9 @@ function NewsCards() {
 
   useEffect(() => {
     fetchAPI('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
+  }, []);
+
+  useEffect(() => {
   }, [visibleCards]);
 
   return (
@@ -33,7 +36,6 @@ function NewsCards() {
             Favoritos
           </Nav.Link>
         </Nav>
-
         <div className="toggle-list-div">
           <label htmlFor="toggle-list" data-testid="toggleList">
             <input
@@ -62,7 +64,7 @@ function NewsCards() {
           dataLength={ cardsList.length }
           next={ infiniteScroll }
           hasMore
-          loader={ <h4 className="loading">Carregando...</h4> }
+          loader={ false }
         >
           {cardsList.slice(0, visibleCards).map((card, index) => (
             <Card card={ card } key={ index } />
