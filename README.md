@@ -1,8 +1,16 @@
 # Trybe App
-
-![Trybe App](https://link_para_a_imagem.com)
-
 Esse é um projeto criado com as principais tecnologias utilizadas no módulo de front-end da [Trybe](https://betrybe.com/).
+
+<img src="src/assets/desktop-dark-print.png" alt="desktop dark" title="desktop dark" width=100%>
+<br>
+<br>
+<img src="src/assets/desktop-light-print.png" alt="desktop light" title="desktop light" width=100%>
+<br>
+<br>
+
+<img src="src/assets/mobile-light-print.png" alt="mobile light" title="mobile light" width=49%>
+<img src="src/assets/mobile-dark-print.png" alt="mobile dark" title="mobile dark" 
+width=49%>
 
 ## Link da aplicão
 [Trybe News - Uma aplicação em React](https://trybe-news-react.vercel.app/)
