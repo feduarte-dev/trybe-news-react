@@ -28,8 +28,8 @@
 .theme {
   position: absolute;
   top: 10%;
-  right: -6px;
-  width: 50px;
+  right: 0px;
+  width: 45px;
   z-index: 1;
   padding: 5px;
 }

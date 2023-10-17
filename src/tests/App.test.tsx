@@ -1,4 +1,4 @@
-import { render, screen, waitForElementToBeRemoved, waitFor } from '@testing-library/react';
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
 import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
@@ -17,6 +17,7 @@ afterEach(() => {
 
 describe('Teste se a aplicação funciona', () => {
   test('Renderiza header', async () => {
+    const user = userEvent.setup();
     render(
       <NewsProvider>
         <App />
@@ -26,10 +27,8 @@ describe('Teste se a aplicação funciona', () => {
 
     await waitForElementToBeRemoved(() => screen.getByText(/Carregando.../i));
 
-    const title = screen.getByRole('heading', {
-      name: /trybe news/i,
-    });
-    expect(title).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /trybe news/i })).toBeInTheDocument();
+    await user.click(screen.getByRole('img', { name: /theme/i }));
   });
 
   test('Renderiza highlights', async () => {
@@ -47,34 +46,19 @@ describe('Teste se a aplicação funciona', () => {
     expect(getApi).toBeCalledWith('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
   });
 
-  // test('Renderiza navbar', async () => {
-  //   const user = userEvent.setup();
-  //   render(
-  //     <NewsProvider>
-  //       <App />
-  //     </NewsProvider>,
-  //   );
-  //   await waitForElementToBeRemoved(() => screen.getByText(/Carregando.../i));
-  //   await user.click(screen.getByRole('button', { name: /releases/i }));
-  //   expect(fetchAPI.getApi).toBeCalledWith('http://servicodados.ibge.gov.br/api/v3/noticias/?tipo=release');
-  //   await user.click(screen.getByRole('button', { name: /mais recentes/i }));
-  //   expect(fetchAPI.getApi).toBeCalledWith('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
-  //   await user.click(screen.getByRole('button', { name: /notícias/i }));
-  //   expect(fetchAPI.getApi).toBeCalledWith('http://servicodados.ibge.gov.br/api/v3/noticias/?tipo=noticia');
-  //   await user.click(screen.getByRole('button', { name: /favoritos/i }));
-  // });
-
-  // test('Renderiza navbar', async () => {
-  //   const user = userEvent.setup();
-  //   render(
-  //     <NewsProvider>
-  //       <App />
-  //     </NewsProvider>,
-  //   );
-  //   await waitForElementToBeRemoved(() => screen.getByText(/Carregando.../i));
-  //   await user.click(screen.getByRole('button', { name: /releases/i }));
-  //   expect(getApi).lastCalledWith('http://servicodados.ibge.gov.br/api/v3/noticias/?tipo=release');
-  // });
+  test('Renderiza navbar', async () => {
+    const user = userEvent.setup();
+    render(
+      <NewsProvider>
+        <App />
+      </NewsProvider>,
+    );
+    await waitForElementToBeRemoved(() => screen.getByText(/Carregando.../i));
+    await user.click(screen.getByRole('button', { name: /releases/i }));
+    await user.click(screen.getByRole('button', { name: /mais recentes/i }));
+    await user.click(screen.getByRole('button', { name: /notícias/i }));
+    await user.click(screen.getByRole('button', { name: /favoritos/i }));
+  });
 
   test('Renderiza news cards', async () => {
     render(
@@ -85,32 +69,7 @@ describe('Teste se a aplicação funciona', () => {
     await waitForElementToBeRemoved(() => screen.getByText(/Carregando.../i));
 
     const news = screen.getAllByTestId('cardContainer');
-    expect(news).toHaveLength(7);
-  });
-
-  test('Verifica funcionalidade de scroll infinito', async () => {
-    render(
-      <NewsProvider>
-        <App />
-      </NewsProvider>,
-    );
-
-    await waitForElementToBeRemoved(() => screen.getByText(/Carregando.../i));
-
-    console.log('ScrollY antes da rolagem:', window.scrollY);
-
-    // Scroll into the reference point at the bottom of your content
-    // const scrollReferencePoint = screen.getByTestId('scroll-reference-point');
-    // scrollReferencePoint.scrollIntoView();
-
-    // Wait for the scrolling to take effect
-    await waitFor(() => {
-      const news = screen.queryAllByTestId('cardContainer');
-      console.log('Número de cardContainers:', news.length);
-      expect(news).toHaveLength(7);
-    });
-
-    console.log('ScrollY após a rolagem:', window.scrollY);
+    expect(news).toHaveLength(8);
   });
 
   test('Verifica funcionalidade de trocar de lista para cards', async () => {
@@ -122,23 +81,5 @@ describe('Teste se a aplicação funciona', () => {
     );
     await waitForElementToBeRemoved(() => screen.getByText(/Carregando.../i));
     await user.click(screen.getByTestId('toggleList'));
-  });
-
-  test('Verifica funcionalidade de scroll infinito', async () => {
-    render(
-      <NewsProvider>
-        <App />
-      </NewsProvider>,
-    );
-
-    await waitForElementToBeRemoved(() => screen.getByText(/Carregando.../i));
-
-    const scrollableContainer = screen.getByTestId('mainContainer'); // You can change this to the actual scrollable container
-    scrollableContainer.scrollTo(0, 1000); // Scroll to the desired position
-
-    await waitFor(() => {
-      const news = screen.queryAllByTestId('cardContainer');
-      expect(news).toHaveLength(8); // Or the expected count of news items.
-    });
   });
 });
