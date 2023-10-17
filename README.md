@@ -7,10 +7,9 @@ Esse é um projeto criado com as principais tecnologias utilizadas no módulo de
 <img src="src/assets/desktop-light-print.png" alt="desktop light" title="desktop light" width=100%>
 <br>
 <br>
-
-<img src="src/assets/mobile-light-print.png" alt="mobile light" title="mobile light" width=40%>
+<img src="src/assets/mobile-light-print.png" alt="mobile light" title="mobile light" width=30%>
 <img src="src/assets/mobile-dark-print.png" alt="mobile dark" title="mobile dark" 
-width=40%>
+width=30%>
 
 ## Link da aplicão
 [Trybe News - Uma aplicação em React](https://trybe-news-react.vercel.app/)
