@@ -1,101 +1,97 @@
-.card-container {
-    padding: 16px 5px;
-  }
-  
-  .cards-btns {
-    display: flex;
-    justify-content: space-between;
-    margin: 4px 0 30px;
-  }
-  
-  .fav-input {
-    display: none;
-  }
+.navbar-nav {
+  padding: 1px;
+}
 
-  .fav-icon {
-    width: 40px;
-  }
+.navbar {
+  margin-top: 10px;
+  background-color: #1f2631 !important;
+}
 
-  .navbar-nav {
-    padding: 1px;
-  }
+.nav-link {
+  color: #e1f2d5;
+}
 
-  .navbar {
-    margin-top: 10px;
-  }
+.nav-link:hover {
+  color: #e1f2d5;
+  background-color: #ffffff1e;
+  border-radius: 5px;
+}
 
-  hr {
-    margin-bottom: 0;
-  }
-
-.cardslist-container {
-  padding: 20px;
- }
-
-.toogle-list-input {
-  display: none;
+.nav-link:focus {
+  color: #e1f2d575;
 }
 
 .toggle-list-div {
   display: none;
 }
 
-
-@media screen and (min-width: 1280px) {
-  .active.carousel-item {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .highlight-img {
-    height: 400px;
-    padding: 10px;
-    flex: 1; 
-    width: 100%; 
-    object-fit: cover; 
-    max-height: 100%; 
-  }
-.active .card-container {
-  border: none;
-  width: auto;
+.toogle-list-input {
+  display: none;
 }
-  .cardslist-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
-  .card-container {
-    width: 400px;
-    border: 1px solid grey;
-    border-radius: 6px;
-    margin: 10px;
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between; 
-    height: 100%;
-    padding: 10px 16px 0 16px;
-  }
 
-  .list {
-    width: fit-content;
+.cardslist-container {
+  padding: 20px;
+}
+
+.card-container {
+  padding: 16px 5px;
+}
+
+.cards-btns {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0 30px;
+}
+
+.fav-input {
+  display: none;
+}
+
+.fav-icon {
+  width: 40px;
+}
+
+hr {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 1920px) {
+  .navbar {
+    padding: 10px 65px;
   }
 
   .toggle-list-div {
     display: block;
   }
 
-  .navbar {
-    padding: 10px 20px;
+  .list {
+    width: 97%;
+  }
+
+  .card-container {
+    width: 400px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 16px 0 16px;
+  }
+
+  .infinite-scroll-component {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 
   hr {
     display: none;
   }
 
-  .carousel-item {
-          /* width: 700px; */
-    padding: 20px 20px 0 20px;
+  .loading {
+    display: block;
+    width: 100%;
+    text-align: center;
   }
-
-  /* Adicione estilos adicionais específicos para 1440px aqui */
 }

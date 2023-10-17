@@ -27,7 +27,7 @@ function Highlights() {
                 src={ transformImg(highlight.imagens) }
                 alt={ highlight.titulo }
               />
-              <Card card={ highlight } key={ index } />
+              <Card card={ highlight } key={ index } destaques />
             </Carousel.Item>
           ))}
       </Carousel>
