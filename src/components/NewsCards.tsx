@@ -7,10 +7,12 @@ import Card from './Card';
 import NewsContext from '../context/NewsContext';
 import blocksIcon from '../assets/blocks-icon.svg';
 import listIcon from '../assets/list-icon.svg';
+import blocksIconDark from '../assets/blocks-icon-dark.svg';
+import listIconDark from '../assets/list-icon-dark.svg';
 
 function NewsCards() {
   const { cardsList, fetchAPI, handleNavbarClick,
-    visibleCards, toggleList, isList, infiniteScroll } = useContext(NewsContext);
+    visibleCards, toggleList, isList, infiniteScroll, isDark } = useContext(NewsContext);
 
   useEffect(() => {
     fetchAPI('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
@@ -47,12 +49,12 @@ function NewsCards() {
             />
             <img
               className="toggle-list"
-              src={ blocksIcon }
+              src={ isDark ? blocksIcon : blocksIconDark }
               alt="togglelist"
             />
             <img
               className="toggle-list"
-              src={ listIcon }
+              src={ isDark ? listIcon : listIconDark }
               alt="togglelist"
             />
           </label>
