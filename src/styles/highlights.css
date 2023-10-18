@@ -7,7 +7,7 @@
 .carousel-control-next,
 .carousel-control-prev {
   align-items: center;
-  height: auto !important;
+  height: 40%;
 }
 
 .details-btn {
