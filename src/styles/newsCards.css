@@ -1,25 +1,60 @@
-.navbar-nav {
-  padding: 1px;
-  margin: auto;
+.card-container {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px 16px 0 16px;
+  width: 400px;
 }
 
-.navbar {
-  margin-top: 10px;
-  background-color: #1f2631 !important;
+.cards-btns {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0 30px;
+}
+
+.cardslist-container {
+  padding: 20px;
+}
+
+.fav-icon {
+  cursor: pointer;
+  width: 40px;
+}
+
+.fav-input {
+  display: none;
 }
 
 .nav-link {
   color: #e1f2d5;
 }
 
-.nav-link:hover {
-  color: #e1f2d5;
-  background-color: #ffffff1e;
-  border-radius: 5px;
-}
-
 .nav-link:focus {
   color: #e1f2d575;
+}
+
+.nav-link:hover {
+  background-color: #ffffff1e;
+  border-radius: 5px;
+  color: #e1f2d5;
+}
+
+.navbar {
+  background-color: #1f2631 !important;
+  margin-top: 10px;
+  padding: 10px 65px;
+}
+
+.navbar-nav {
+  margin: auto;
+  padding: 1px;
+}
+
+.toggle-list {
+  cursor: pointer;
 }
 
 .toggle-list-div {
@@ -30,59 +65,16 @@
   display: none;
 }
 
-.cardslist-container {
-  padding: 20px;
-}
-
-.card-container {
-  padding: 16px 5px;
-}
-
-.cards-btns {
-  display: flex;
-  justify-content: space-between;
-  margin: 4px 0 30px;
-}
-
-.fav-input {
-  display: none;
-}
-
-.fav-icon {
-  width: 40px;
-}
-
-hr {
-  margin-bottom: 0;
-}
-
 @media screen and (min-width: 1920px) {
-  .navbar {
-    padding: 10px 65px;
-  }
-
-  .navbar-nav {
-    padding: 1px;
-    margin: 0;
-  }
-
-  .toggle-list-div {
-    display: block;
-  }
-
-  .list {
-    width: 97%;
-  }
-
   .card-container {
-    width: 400px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 6px;
-    margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: 10px;
     padding: 10px 16px 0 16px;
+    width: 400px;
   }
 
   .infinite-scroll-component {
@@ -91,13 +83,34 @@ hr {
     justify-content: space-evenly;
   }
 
-  hr {
-    display: none;
+  .list {
+    width: 97%;
   }
 
   .loading {
     display: block;
-    width: 100%;
     text-align: center;
+    width: 100%;
+  }
+
+  hr {
+    display: none;
+  }
+
+  .navbar {
+    padding: 10px 65px;
+  }
+
+  .navbar-nav {
+    margin: 0;
+    padding: 1px;
+  }
+
+  .toggle-list {
+    cursor: pointer;
+  }
+
+  .toggle-list-div {
+    display: block;
   }
 }
