@@ -1,116 +1,74 @@
-.card-container {
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
+.carousel-container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 10px;
-  padding: 10px 16px 0 16px;
-  width: 400px;
+  padding: 20px 20px 0 20px;
 }
 
-.cards-btns {
+.highlight-img {
+  border-radius: 3px;
+  height: 250px;
+  width: 100%;
+}
+
+.text-container,
+.highlight-info {
   display: flex;
   justify-content: space-between;
-  margin: 4px 0 30px;
+  padding: 5px 0;
 }
 
-.cardslist-container {
-  padding: 20px;
+.carousel-control-next,
+.carousel-control-prev {
+  align-items: center;
+  height: 250px !important;
 }
 
-.fav-icon {
-  cursor: pointer;
-  width: 40px;
+.highlights {
+  color: rgba(255, 0, 0, 0.75);
+  font-weight: 500;
 }
 
-.fav-input {
-  display: none;
-}
-
-.nav-link {
-  color: #e1f2d5;
-}
-
-.nav-link:focus {
-  color: #e1f2d575;
-}
-
-.nav-link:hover {
-  background-color: #ffffff1e;
-  border-radius: 5px;
-  color: #e1f2d5;
-}
-
-.navbar {
-  background-color: #1f2631 !important;
-  margin-top: 10px;
-  padding: 10px 65px;
-}
-
-.navbar-nav {
-  margin: auto;
-  padding: 1px;
-}
-
-.toggle-list {
-  cursor: pointer;
-}
-
-.toggle-list-div {
-  display: none;
-}
-
-.toogle-list-input {
-  display: none;
+.details-btn {
+  color: white;
+  padding: 3px;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 1920px) {
-  .card-container {
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
+  .carousel-container {
+    justify-content: center;
+  }
+
+  .carousel-item {
+    padding: 20px 20px 0 20px;
+  }
+
+  .active.carousel-item {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 10px;
-    padding: 10px 16px 0 16px;
-    width: 400px;
+    flex-direction: row;
   }
 
-  .infinite-scroll-component {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
-
-  .list {
-    width: 97%;
-  }
-
-  .loading {
-    display: block;
-    text-align: center;
+  .highlight-img {
+    border-radius: 15px;
+    flex: 1;
+    height: 400px;
+    max-height: 100%;
+    object-fit: cover;
+    padding: 10px;
     width: 100%;
   }
 
-  hr {
-    display: none;
+  .active .card-container {
+    border: none;
+    width: 50%;
   }
 
-  .navbar {
-    padding: 10px 65px;
+  .active .card-container .cards-btns {
+    z-index: 2;
   }
 
-  .navbar-nav {
-    margin: 0;
-    padding: 1px;
-  }
-
-  .toggle-list {
-    cursor: pointer;
-  }
-
-  .toggle-list-div {
-    display: block;
+  .carousel-control-next,
+  .carousel-control-prev {
+    align-items: center;
+    height: auto !important;
   }
 }
