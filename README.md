@@ -7,22 +7,72 @@ Esse é um projeto criado com as principais tecnologias utilizadas no módulo de
 <img src="src/assets/desktop-light-print.png" alt="desktop light" title="desktop light" width=100%>
 <br>
 <br>
-<p float="left">
+
 <img src="src/assets/mobile-light-print.png" alt="mobile light" title="mobile light" width=49%>
 <img src="src/assets/mobile-dark-print.png" alt="mobile dark" title="mobile dark" 
 width=49%>
-</p>
 
 ## Link da aplicação
 [Trybe News - Uma aplicação em React](https://trybe-news-react.vercel.app/)
 
-Se quiser rodar a aplicação:
 
-- Faça um clone do repositório
+## Instalação
 
-- Rode o comando npm install.
+Para executar esta aplicação, siga os passos abaixo:
 
-- Rode o comando npm run dev.
+1. Faça um clone do repositório:
+
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   ```
+
+2. Navegue para o diretório do projeto:
+
+   ```bash
+   cd seu-repositorio
+   ```
+
+3. Instale as dependências usando o npm (Node Package Manager):
+
+   ```bash
+   npm install
+   ```
+
+4. Inicie a aplicação:
+
+   ```bash
+   npm run dev
+   ```
+
+
+## Contribuição
+
+Estou aberto a contribuições para melhorar este projeto. Se você deseja contribuir, siga estes passos:
+
+1. Faça um fork do repositório.
+
+2. Crie uma branch para a sua contribuição:
+
+   ```bash
+   git checkout -b minha-contribuicao
+   ```
+
+3. Faça as alterações necessárias e adicione os commits.
+
+4. Envie as alterações para o seu fork:
+
+   ```bash
+   git push origin minha-contribuicao
+   ```
+
+5. Crie um pull request para a branch principal do projeto.
+
+<h3 align=center > Ou então entre em contato comigo!! </h4>
+
+## Issues
+
+Se você encontrar problemas ou tiver sugestões para melhorias, sinta-se à vontade para abrir uma **issue** no repositório. Certifique-se de fornecer informações detalhadas para que eu entenda o problema ou a sugestão e trabalhar para resolvê-lo.
+
 
 ## Gist do Projeto
 Confira [esse link](https://gist.github.com/feduarte-dev/fdeed18cce3fc52fbf74e299b370923a).
@@ -75,6 +125,5 @@ Além das funcionalidades solicitadas no Gist do Projeto, decidi aprimorar a exp
 ## Contato
 [Github](https://github.com/feduarte-dev) -
 [Linkedin](https://www.linkedin.com/in/feduarte-dev/)
-
 
 
