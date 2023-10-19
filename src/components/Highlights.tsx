@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/highlights.css';
 import NewsContext from '../context/NewsContext';
 import Card from './Card';
-import { readTheme } from '../services/localStorage';
 
 function Highlights() {
   const { transformImg, fetchAPI, highlightsList, isLoading } = useContext(NewsContext);
