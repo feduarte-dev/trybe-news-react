@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import ContextNews from './NewsContext';
-import { ReportType } from '../types';
+import { ReportType, NewsProviderProps } from '../types';
 import { getApi } from '../services/getApi';
-
-type NewsProviderProps = {
-  children: React.ReactNode;
-};
+import { getInitialTheme } from '../services/localStorage';
 
 function NewsProvider({ children }: NewsProviderProps) {
   const [highlightsList, setHighlightsList] = useState<ReportType[]>([]);
@@ -14,7 +11,7 @@ function NewsProvider({ children }: NewsProviderProps) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isFavoriteTab, setIsFavoriteTab] = useState<boolean>(false);
   const [isList, setIsList] = useState<boolean>(false);
-  const [isDark, setIsDark] = useState<boolean>(true);
+  const [isDark, setIsDark] = useState(getInitialTheme());
 
   const fetchAPI = async (URL: string) => {
     const result = await getApi(URL);
@@ -82,8 +79,16 @@ function NewsProvider({ children }: NewsProviderProps) {
     }
   };
 
+  const setThemeInLocalStorage = (theme: boolean) => {
+    localStorage.setItem('theme', theme ? 'dark' : 'light');
+  };
+
   const changeTheme = () => {
-    setIsDark((prevTheme) => !prevTheme);
+    setIsDark((prevTheme) => {
+      const newTheme = !prevTheme;
+      setThemeInLocalStorage(newTheme);
+      return newTheme;
+    });
   };
 
   const infiniteScroll = () => {

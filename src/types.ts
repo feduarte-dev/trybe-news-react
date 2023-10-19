@@ -1,4 +1,4 @@
-export type ProviderRecipesProps = {
+export type NewsProviderProps = {
   children: React.ReactNode;
 };
 
