@@ -9,7 +9,6 @@ import blocksIcon from '../assets/blocks-icon.svg';
 import listIcon from '../assets/list-icon.svg';
 import blocksIconDark from '../assets/blocks-icon-dark.svg';
 import listIconDark from '../assets/list-icon-dark.svg';
-import { readTheme } from '../services/localStorage';
 
 function NewsCards() {
   const { cardsList, fetchAPI, handleNavbarClick,
@@ -17,7 +16,6 @@ function NewsCards() {
 
   useEffect(() => {
     fetchAPI('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
-    // readTheme();
   }, []);
 
   useEffect(() => {
