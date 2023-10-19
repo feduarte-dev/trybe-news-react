@@ -5,7 +5,7 @@ import filledHeart from '../assets/filled-heart.svg';
 import '../styles/newsCards.css';
 import NewsContext from '../context/NewsContext';
 import { CardPropsType, ReportType } from '../types';
-import { readFavoriteNews, saveFavoriteNews } from '../services/favorites';
+import { readFavoriteNews, saveFavoriteNews } from '../services/localStorage';
 
 function Card({ card, destaques }: CardPropsType) {
   const { transformDate, setCardsList, isFavoriteTab, isList } = useContext(NewsContext);

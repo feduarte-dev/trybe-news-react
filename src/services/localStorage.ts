@@ -12,3 +12,8 @@ export const readFavoriteNews = (): ReportType[] => JSON.parse(
 
 export const saveFavoriteNews = (favoriteNews: ReportType[]) => localStorage
   .setItem(localStorageKey, JSON.stringify(favoriteNews));
+
+export const getInitialTheme = () => {
+  const storedTheme = localStorage.getItem('theme');
+  return storedTheme === 'dark';
+};
