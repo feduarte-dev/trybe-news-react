@@ -2,7 +2,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable max-len */
 
-function obterDataFormatada() {
+function transformDateToday() {
   const agora = new Date();
   const dia = String(agora.getDate()).padStart(2, '0');
   const mes = String(agora.getMonth() + 1).padStart(2, '0');
@@ -16,7 +16,7 @@ function obterDataFormatada() {
   return dataFormatada;
 }
 
-function obterDataFormatadaOntem() {
+function transformDateYesterday() {
   const agora = new Date();
   const dia = String(agora.getDate() - 1).padStart(2, '0');
   const mes = String(agora.getMonth() + 1).padStart(2, '0');
@@ -38,7 +38,7 @@ const apiResultMock = [
         'Inflação fica em 0,26% em setembro, influenciada pelo aumento da gasolina',
     introducao:
             'Subitem de maior peso do IPCA, a gasolina teve alta e impactou na inflação de setembro - Foto: Helena Pontes/Agência IBGE Notícias A inflação do mês de setembro foi de 0,26%, ficando 0,03 ponto percentual (p.p.) acima da taxa de 0,23% registrada em...',
-    data_publicacao: obterDataFormatada(),
+    data_publicacao: transformDateToday(),
     produto_id: 0,
     produtos:
         '9256|Índice Nacional de Preços ao Consumidor Amplo|indice-nacional-de-precos-ao-consumidor-amplo|2210;9258|Índice Nacional de Preços ao Consumidor|indice-nacional-de-precos-ao-consumidor|2077',
@@ -57,7 +57,7 @@ const apiResultMock = [
         'Preços da construção variam 0,02% em setembro com menor número de acordos coletivos',
     introducao:
         'Com menos acordos coletivos, taxa da mão de obra passa de 0,64% em agosto para 0,36% em setembro - Foto: Lúcio Bernardo Jr./Agência Brasília O Índice Nacional da Construção Civil (Sinapi), divulgado hoje (11) pelo IBGE, apresentou variação de 0,02% em...',
-    data_publicacao: obterDataFormatadaOntem(),
+    data_publicacao: transformDateYesterday(),
     produto_id: 9270,
     produtos:
         '9270|Sistema Nacional de Pesquisa de Custos e Índices da Construção Civil|sistema-nacional-de-pesquisa-de-custos-e-indices-da-construcao-civil|2079',

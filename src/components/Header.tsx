@@ -10,7 +10,6 @@ function Header() {
 
   return (
     <div className="header-container">
-
       <label htmlFor="theme-input">
         <input
           type="checkbox"
@@ -24,7 +23,6 @@ function Header() {
           className="theme"
         />
       </label>
-
       <img
         src={ trybeLogo }
         alt="trybe-logo"

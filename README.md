@@ -23,7 +23,7 @@ Para executar esta aplicação, siga os passos abaixo:
 1. Faça um clone do repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/feduarte-dev/trybe-news-react
    ```
 
 2. Navegue para o diretório do projeto:
@@ -102,6 +102,8 @@ Este projeto utiliza uma variedade de tecnologias modernas para fornecer uma exp
 - **RTL (React Testing Library)**: Ferramenta essencial para testar componentes React de forma eficaz.
 
 - **Bootstrap**: Popular framework CSS que acelera o design de interfaces web.
+
+- **Infinite Scroll** Componente para renderizar mais itens de acordo com a altura do documento.
 
 - **Figma**: Ferramenta de design de interface de usuário colaborativa que ajudou a dar vida ao projeto.
 

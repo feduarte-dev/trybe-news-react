@@ -9,6 +9,11 @@
   position: relative;
 }
 
+.light .header-container {
+  background-color: #D0D5DA!important;
+  color: #3E4854;
+}
+
 .site-title {
   font-size: 30px;
   margin: 0;
