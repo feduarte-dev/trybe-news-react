@@ -16,6 +16,7 @@ function Card({ card, destaques }: CardPropsType) {
     setIsFavorite(favoriteNews.some((report) => report.id === card.id));
   }, [card]);
 
+  // Adiciona e remove dos favoritos, se estiver na aba de favoritos, atualiza na hora
   const setFavoriteNews = (favReport: ReportType) => {
     setIsFavorite((prevIsFavorite) => !prevIsFavorite);
     const favoriteNews = readFavoriteNews();

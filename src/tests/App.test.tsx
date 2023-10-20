@@ -15,7 +15,7 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-describe('Teste se a aplicação funciona', () => {
+describe('Teste dos componentes', () => {
   test('Renderiza header', async () => {
     const user = userEvent.setup();
     render(
