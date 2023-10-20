@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { ReportType } from '../types';
 
 type NewsContextType = {
-  highlightsList: ReportType[];
+  originalCardsList: ReportType[];
   fetchAPI: (URL: string) => void;
   transformDate: (date: string) => string;
   transformImg: (imgJson: string) => string;
@@ -17,6 +17,7 @@ type NewsContextType = {
   infiniteScroll: () => void
   changeTheme: () => void
   isDark: boolean
+
 };
 
 const NewsContext = createContext({} as NewsContextType);
