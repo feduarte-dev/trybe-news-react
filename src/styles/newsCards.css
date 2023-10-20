@@ -1,21 +1,29 @@
 .navbar-nav {
-  padding: 1px;
   margin: auto;
+  padding: 1px;
 }
 
 .navbar {
-  margin-top: 10px;
   background-color: #1f2631 !important;
+  margin-top: 10px;
+}
+
+.light .navbar {
+  background-color: #d0d5da !important;
 }
 
 .nav-link {
   color: #e1f2d5;
 }
 
+.light .navbar div a {
+  color: #3e4854;
+}
+
 .nav-link:hover {
-  color: #e1f2d5;
   background-color: #ffffff1e;
   border-radius: 5px;
+  color: #e1f2d5;
 }
 
 .nav-link:focus {
@@ -31,7 +39,7 @@
 }
 
 .cardslist-container {
-  padding: 20px;
+  padding: 15px;
 }
 
 .card-container {
@@ -76,19 +84,23 @@ hr {
   }
 
   .card-container {
-    width: 400px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 6px;
-    margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: 10px;
     padding: 10px 16px 0 16px;
+    width: 400px;
   }
-  
-.cardslist-container div div .list {
+
+  .cardslist-container div div .list {
     display: block;
     width: 97%;
+  }
+
+  .light .cardslist-container div div .card-container {
+    border: 2px solid #1a1b1c8e;
   }
 
   .infinite-scroll-component {
@@ -103,7 +115,7 @@ hr {
 
   .loading {
     display: block;
-    width: 100%;
     text-align: center;
+    width: 100%;
   }
 }

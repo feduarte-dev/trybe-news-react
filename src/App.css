@@ -1,4 +1,4 @@
-.mainContainer {
+.dark {
     background-color: #1A1B1C;
     color: #E1F2D5;
 }
@@ -6,21 +6,4 @@
 .light {
     background-color: #F8F9FA;
     color: #3E4854;
-}
-
-.light .navbar {
-    background-color: #D0D5DA!important;
-}
-
-.light .header-container {
-    background-color: #D0D5DA!important;
-    color: #3E4854;
-}
-
-.light .navbar div a{
-    color: #3E4854;
-}
-
-.light .cardslist-container div div .card-container {
-    border: 2px solid #1a1b1c8e;
 }

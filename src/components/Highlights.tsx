@@ -13,7 +13,7 @@ function Highlights() {
   }, []);
 
   if (isLoading) {
-    return <div>Carregando...</div>;
+    return <div className="loading">Carregando...</div>;
   }
 
   return (

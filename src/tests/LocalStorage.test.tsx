@@ -3,7 +3,6 @@ import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import * as fetchAPI from '../services/getApi';
 import App from '../App';
-import localStorageMock from './mocks/localStorageMock';
 import apiResultMock from './mocks/apiResultMock';
 import setLocalStorage from './utils/setLocalStorage';
 import NewsProvider from '../context/NewsProvider';
@@ -39,7 +38,7 @@ describe('Teste das funcionalidades de notícias preferidas', () => {
 
   test('Verifica funcionalidade de desfavoritar', async () => {
     const user = userEvent.setup();
-    setLocalStorage(localStorageMock);
+    setLocalStorage(apiResultMock);
     render(
       <NewsProvider>
         <App />
@@ -50,9 +49,11 @@ describe('Teste das funcionalidades de notícias preferidas', () => {
     await user.click(screen.getByRole('button', { name: /favoritos/i }));
     await user.click(screen.getAllByTestId('favBtn')[0]);
     await user.click(screen.getAllByTestId('favBtn')[4]);
+    await user.click(screen.getAllByTestId('favBtn')[7]);
+    await user.click(screen.getAllByTestId('favBtn')[0]);
 
     const favorites = JSON.parse(window.localStorage.getItem('Favorite News') || '[]');
 
-    expect(favorites).toHaveLength(1);
+    expect(favorites).toHaveLength(11);
   });
 });
