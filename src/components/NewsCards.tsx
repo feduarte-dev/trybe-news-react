@@ -12,7 +12,8 @@ import listIconDark from '../assets/list-icon-dark.svg';
 
 function NewsCards() {
   const { cardsList, fetchAPI, handleNavbarClick,
-    visibleCards, toggleList, isList, infiniteScroll, isDark } = useContext(NewsContext);
+    visibleCards, toggleList, isList, infiniteScroll,
+    isDark, isFavoriteTab } = useContext(NewsContext);
 
   useEffect(() => {
     fetchAPI('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
@@ -38,6 +39,7 @@ function NewsCards() {
             Favoritos
           </Nav.Link>
         </Nav>
+
         <div className="toggle-list-div">
           <label htmlFor="toggle-list" data-testid="toggleList">
             <input
@@ -60,6 +62,12 @@ function NewsCards() {
           </label>
         </div>
       </Navbar>
+
+      {isFavoriteTab
+      && JSON.parse(localStorage.getItem('Favorite News') || '[]').length === 0
+      && (
+        <p className="emptyFav">Você ainda não adicionou notícias aos seus favoritos!</p>
+      )}
 
       <div className="cardslist-container">
         <InfiniteScroll

@@ -5,7 +5,7 @@ import { getApi } from '../services/getApi';
 import { readInitialTheme, saveTheme } from '../services/localStorage';
 
 function NewsProvider({ children }: NewsProviderProps) {
-  const [highlightsList, setHighlightsList] = useState<ReportType[]>([]);
+  const [originalCardsList, setOriginalCardsList] = useState<ReportType[]>([]);
   const [cardsList, setCardsList] = useState<ReportType[]>([]);
   const [visibleCards, setVisibleCards] = useState<number>(4);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -16,13 +16,8 @@ function NewsProvider({ children }: NewsProviderProps) {
   // Função para buscar na API
   const fetchAPI = async (URL: string) => {
     const result = await getApi(URL);
-    if (URL.includes('qtd=100')) {
-      setHighlightsList(result.slice(0, 4));
-      setCardsList(result.slice(4, -1));
-    } else {
-      setCardsList(result.slice(4, -1));
-      setVisibleCards(4);
-    }
+    setOriginalCardsList(result);
+    setCardsList(result.slice(4, -1));
     setIsLoading(false);
   };
 
@@ -42,9 +37,7 @@ function NewsProvider({ children }: NewsProviderProps) {
   function transformDate(date: string) {
     const splitDate = date.split('/');
     const formattedDate = `${splitDate[1]}/${splitDate[0]}/${splitDate[2]}`;
-    const reportDate = new Date(formattedDate);
-    const todayDate = new Date();
-    const dateRange = Number(todayDate) - Number(reportDate);
+    const dateRange = Number(new Date()) - Number(new Date(formattedDate));
     const result = Math.floor(dateRange / (1000 * 60 * 60 * 24));
     let resultString = '';
     if (result > 1) resultString = `${result} dias atrás`;
@@ -53,30 +46,37 @@ function NewsProvider({ children }: NewsProviderProps) {
     return resultString;
   }
 
-  // Busca na API de acordo com o filtro clicado
+  // Filtra o retorno da API com base no botão clicado
   const handleNavbarClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
+
+    let filteredCards = [];
+
     switch (target.innerText) {
       case 'Mais Recentes':
-        fetchAPI('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
+        setCardsList(originalCardsList.slice(4, -1));
+        setVisibleCards(4);
         setIsFavoriteTab(false);
         break;
       case 'Releases':
-        fetchAPI(
-          'https://servicodados.ibge.gov.br/api/v3/noticias/?tipo=release',
-        );
+        filteredCards = originalCardsList
+          .filter((card) => card.tipo === 'Release').slice(4, -1);
+        setCardsList(filteredCards);
+        setVisibleCards(4);
         setIsFavoriteTab(false);
         break;
       case 'Notícias':
-        fetchAPI(
-          'https://servicodados.ibge.gov.br/api/v3/noticias/?tipo=noticia',
-        );
+        filteredCards = originalCardsList
+          .filter((card) => card.tipo === 'Notícia').slice(4, -1);
+        setCardsList(filteredCards);
+        setVisibleCards(4);
         setIsFavoriteTab(false);
         break;
       case 'Favoritos':
         setCardsList(
           JSON.parse(localStorage.getItem('Favorite News') as string),
         );
+        setVisibleCards(4);
         setIsFavoriteTab(true);
         break;
       default:
@@ -107,7 +107,7 @@ function NewsProvider({ children }: NewsProviderProps) {
   window.addEventListener('scroll', infiniteScroll);
 
   const context = {
-    highlightsList,
+    originalCardsList,
     fetchAPI,
     transformDate,
     transformImg,
