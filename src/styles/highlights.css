@@ -40,7 +40,7 @@ highlight-info,
   text-align: center;
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1366px) {
   .active.carousel-item {
     display: flex;
     flex-direction: row;

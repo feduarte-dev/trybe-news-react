@@ -7,11 +7,12 @@ import { readInitialTheme, saveTheme } from '../services/localStorage';
 function NewsProvider({ children }: NewsProviderProps) {
   const [originalCardsList, setOriginalCardsList] = useState<ReportType[]>([]);
   const [cardsList, setCardsList] = useState<ReportType[]>([]);
-  const [visibleCards, setVisibleCards] = useState<number>(4);
+  const [visibleCards, setVisibleCards] = useState<number>(3);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isFavoriteTab, setIsFavoriteTab] = useState<boolean>(false);
   const [isList, setIsList] = useState<boolean>(false);
   const [isDark, setIsDark] = useState(readInitialTheme());
+  const [isVisible, setIsVisible] = useState(false);
 
   // Função para buscar na API
   const fetchAPI = async (URL: string) => {
@@ -55,28 +56,28 @@ function NewsProvider({ children }: NewsProviderProps) {
     switch (target.innerText) {
       case 'Mais Recentes':
         setCardsList(originalCardsList.slice(4, -1));
-        setVisibleCards(4);
+        setVisibleCards(3);
         setIsFavoriteTab(false);
         break;
       case 'Releases':
         filteredCards = originalCardsList
           .filter((card) => card.tipo === 'Release').slice(4, -1);
         setCardsList(filteredCards);
-        setVisibleCards(4);
+        setVisibleCards(3);
         setIsFavoriteTab(false);
         break;
       case 'Notícias':
         filteredCards = originalCardsList
           .filter((card) => card.tipo === 'Notícia').slice(4, -1);
         setCardsList(filteredCards);
-        setVisibleCards(4);
+        setVisibleCards(3);
         setIsFavoriteTab(false);
         break;
       case 'Favoritos':
         setCardsList(
           JSON.parse(localStorage.getItem('Favorite News') as string),
         );
-        setVisibleCards(4);
+        setVisibleCards(3);
         setIsFavoriteTab(true);
         break;
       default:
@@ -93,18 +94,36 @@ function NewsProvider({ children }: NewsProviderProps) {
     });
   };
 
+  // Observa a altura da pagina para renderizar botao scrollToTop
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  // Ao clicar no botão a página volta para o topo
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   // Renderiza mais notícias de acordo com o scroll do mouse
   const infiniteScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop
         === document.documentElement.offsetHeight
     ) {
-      const newVisibleCards = visibleCards + 4;
+      const newVisibleCards = visibleCards + 3;
       setVisibleCards(newVisibleCards);
     }
   };
 
   window.addEventListener('scroll', infiniteScroll);
+  window.addEventListener('scroll', handleScroll);
 
   const context = {
     originalCardsList,
@@ -122,6 +141,8 @@ function NewsProvider({ children }: NewsProviderProps) {
     infiniteScroll,
     changeTheme,
     isDark,
+    scrollToTop,
+    isVisible,
   };
 
   return (

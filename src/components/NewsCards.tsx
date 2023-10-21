@@ -9,11 +9,12 @@ import blocksIcon from '../assets/blocks-icon.svg';
 import listIcon from '../assets/list-icon.svg';
 import blocksIconDark from '../assets/blocks-icon-dark.svg';
 import listIconDark from '../assets/list-icon-dark.svg';
+import upLight from '../assets/up-light.svg';
 
 function NewsCards() {
   const { cardsList, fetchAPI, handleNavbarClick,
     visibleCards, toggleList, isList, infiniteScroll,
-    isDark, isFavoriteTab } = useContext(NewsContext);
+    isDark, isFavoriteTab, scrollToTop, isVisible } = useContext(NewsContext);
 
   useEffect(() => {
     fetchAPI('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
@@ -81,7 +82,12 @@ function NewsCards() {
           ))}
         </InfiniteScroll>
       </div>
-
+      <button
+        onClick={ scrollToTop }
+        className={ isVisible ? 'visible scroll-to-top' : 'scroll-to-top' }
+      >
+        <img src={ upLight } alt="scrollToTop" />
+      </button>
     </>
   );
 }

@@ -69,7 +69,7 @@ describe('Teste dos componentes', () => {
     await waitForElementToBeRemoved(() => screen.getByText(/Carregando.../i));
 
     const news = screen.getAllByTestId('cardContainer');
-    expect(news).toHaveLength(8);
+    expect(news).toHaveLength(7);
   });
 
   test('Verifica funcionalidade de trocar de lista para cards', async () => {

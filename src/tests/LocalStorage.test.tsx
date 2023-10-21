@@ -58,7 +58,7 @@ describe('Teste do local storage', () => {
 
     const favorites = JSON.parse(window.localStorage.getItem(favKey) || '[]');
 
-    expect(favorites).toHaveLength(11);
+    expect(favorites).toHaveLength(13);
   });
 
   test('Verifica funcionalidade de trocar temas', async () => {
