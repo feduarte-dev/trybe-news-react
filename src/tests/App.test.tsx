@@ -108,7 +108,7 @@ describe('Component tests', () => {
     expect(news).toHaveLength(7);
   });
 
-  test('Expects the reports display changes to list and back to card', async () => {
+  test('Expects the reports display changes to list and back to cards', async () => {
     const user = userEvent.setup();
     render(
       <NewsProvider>
