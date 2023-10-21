@@ -21,8 +21,8 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-describe('Teste do local storage', () => {
-  test('Verifica funcionalidade de favoritos', async () => {
+describe('Local storage tests', () => {
+  test('Expects that when clicking on the favorites button, a report will be added to the local storage', async () => {
     const user = userEvent.setup();
     render(
       <NewsProvider>
@@ -40,7 +40,7 @@ describe('Teste do local storage', () => {
     expect(favorites).toHaveLength(3);
   });
 
-  test('Verifica funcionalidade de desfavoritar', async () => {
+  test('Expects that when you unfavorite an report, it will be removed from local storage', async () => {
     const user = userEvent.setup();
     setLocalStorage(favKey, apiResultMock);
     render(
@@ -61,7 +61,7 @@ describe('Teste do local storage', () => {
     expect(favorites).toHaveLength(13);
   });
 
-  test('Verifica funcionalidade de trocar temas', async () => {
+  test('Expects that when changing themes and reloading the page, the theme remains', async () => {
     const user = userEvent.setup();
     render(
       <NewsProvider>
@@ -74,5 +74,7 @@ describe('Teste do local storage', () => {
 
     const themeValue = window.localStorage.getItem(themeKey);
     expect(themeValue).toBe('dark');
+    window.location.reload();
+    expect(screen.getByTestId('mainContainer')).toHaveClass('dark mainContainer');
   });
 });

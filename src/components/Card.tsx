@@ -59,7 +59,7 @@ function Card({ card, highlights }: CardPropsType) {
             Leia mais
           </a>
         </Button>
-        <label htmlFor={ card.titulo } data-testid="favBtn">
+        <label htmlFor={ card.titulo } data-testid="favLabel">
           <input
             className="fav-input"
             type="checkbox"
@@ -68,6 +68,7 @@ function Card({ card, highlights }: CardPropsType) {
             checked={ isFavorite }
           />
           <img
+            data-testid="favBtn"
             className="fav-icon"
             src={ isFavorite ? filledHeart : emptyHeart }
             alt="favorite"
