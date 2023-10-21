@@ -124,6 +124,8 @@ Além das funcionalidades solicitadas no Gist do Projeto, decidi aprimorar a exp
 
 - **Modo Claro e Escuro**: Introduzi opções de modo claro e escuro para aprimorar a qualidade da interação do usuário, permitindo que eles escolham a aparência que preferem.
 
+- **Botão back to top**: Adicionei um botão para a tela subir quando o usuário estiver desccendo a tela.
+
 ## Contato
 [Github](https://github.com/feduarte-dev) -
 [Linkedin](https://www.linkedin.com/in/feduarte-dev/)
