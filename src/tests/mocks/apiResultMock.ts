@@ -3,31 +3,31 @@
 /* eslint-disable max-len */
 
 function transformDateToday() {
-  const agora = new Date();
-  const dia = String(agora.getDate()).padStart(2, '0');
-  const mes = String(agora.getMonth() + 1).padStart(2, '0');
-  const ano = String(agora.getFullYear()).slice(-2);
-  const hora = String(agora.getHours()).padStart(2, '0');
-  const minuto = String(agora.getMinutes()).padStart(2, '0');
-  const segundo = String(agora.getSeconds()).padStart(2, '0');
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const year = String(today.getFullYear()).slice(-2);
+  const hour = String(today.getHours()).padStart(2, '0');
+  const minute = String(today.getMinutes()).padStart(2, '0');
+  const second = String(today.getSeconds()).padStart(2, '0');
 
-  const dataFormatada = `${dia}/${mes}/${ano} ${hora}:${minuto}:${segundo}`;
+  const formatedDate = `${day}/${month}/${year} ${hour}:${minute}:${second}`;
 
-  return dataFormatada;
+  return formatedDate;
 }
 
 function transformDateYesterday() {
-  const agora = new Date();
-  const dia = String(agora.getDate() - 1).padStart(2, '0');
-  const mes = String(agora.getMonth() + 1).padStart(2, '0');
-  const ano = String(agora.getFullYear()).slice(-2);
-  const hora = String(agora.getHours()).padStart(2, '0');
-  const minuto = String(agora.getMinutes()).padStart(2, '0');
-  const segundo = String(agora.getSeconds()).padStart(2, '0');
+  const today = new Date();
+  const day = String(today.getDate() - 1).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const year = String(today.getFullYear()).slice(-2);
+  const hour = String(today.getHours()).padStart(2, '0');
+  const minute = String(today.getMinutes()).padStart(2, '0');
+  const second = String(today.getSeconds()).padStart(2, '0');
 
-  const dataFormatada = `${dia}/${mes}/${ano} ${hora}:${minuto}:${segundo}`;
+  const formatedDate = `${day}/${month}/${year} ${hour}:${minute}:${second}`;
 
-  return dataFormatada;
+  return formatedDate;
 }
 
 const apiResultMock = [

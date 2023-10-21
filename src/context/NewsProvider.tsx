@@ -14,7 +14,7 @@ function NewsProvider({ children }: NewsProviderProps) {
   const [isDark, setIsDark] = useState(readInitialTheme());
   const [isVisible, setIsVisible] = useState(false);
 
-  // Função para buscar na API
+  // Function to get API
   const fetchAPI = async (URL: string) => {
     const result = await getApi(URL);
     setOriginalCardsList(result);
@@ -22,19 +22,19 @@ function NewsProvider({ children }: NewsProviderProps) {
     setIsLoading(false);
   };
 
-  // Define a renderização das noticias em lista ou cards
+  // Defines the rendering of news in list or cards
   const toggleList = () => {
     setIsList((preIsList) => !preIsList);
   };
 
-  // Reescreve o retorno das imagens da API para o formato adequado
+  // Rewrites the images returned from the API to the proper format
   const transformImg = (imgJson: string) => {
     const jsonObj = JSON.parse(imgJson);
     const imgURL = jsonObj.image_intro;
     return `https://agenciadenoticias.ibge.gov.br/${imgURL}`;
   };
 
-  // Reescreve o retorno das datas de publicação da API para o formato adequado
+  // Rewrites the publish dates returned from the API the proper format
   function transformDate(date: string) {
     const splitDate = date.split('/');
     const formattedDate = `${splitDate[1]}/${splitDate[0]}/${splitDate[2]}`;
@@ -47,7 +47,7 @@ function NewsProvider({ children }: NewsProviderProps) {
     return resultString;
   }
 
-  // Filtra o retorno da API com base no botão clicado
+  // Filters the API return based on the button clicked
   const handleNavbarClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
 
@@ -85,7 +85,7 @@ function NewsProvider({ children }: NewsProviderProps) {
     }
   };
 
-  // Alterna entre os temas claro e escuro
+  // Toggle between light and dark themes
   const changeTheme = () => {
     setIsDark((prevTheme) => {
       const newTheme = !prevTheme;
@@ -94,7 +94,7 @@ function NewsProvider({ children }: NewsProviderProps) {
     });
   };
 
-  // Observa a altura da pagina para renderizar botao scrollToTop
+  // Observe the page height to render the scrollToTop button
   const handleScroll = () => {
     if (window.scrollY > 100) {
       setIsVisible(true);
@@ -103,7 +103,7 @@ function NewsProvider({ children }: NewsProviderProps) {
     }
   };
 
-  // Ao clicar no botão a página volta para o topo
+  // When clicking the button the page returns to the top
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -111,7 +111,7 @@ function NewsProvider({ children }: NewsProviderProps) {
     });
   };
 
-  // Renderiza mais notícias de acordo com o scroll do mouse
+  // Renders more news according to mouse scroll
   const infiniteScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop
