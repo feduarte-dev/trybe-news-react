@@ -2,7 +2,7 @@ import { ReportType } from '../types';
 
 const localStorageKey = 'Favorite News';
 
-// Caso não tenha local storage criado, faz um com array vazio
+// If there is no local storage created, create one with an empty array
 if (!JSON.parse(localStorage.getItem(localStorageKey) as string)) {
   localStorage.setItem(localStorageKey, JSON.stringify([]));
 }

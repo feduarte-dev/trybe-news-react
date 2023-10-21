@@ -15,5 +15,5 @@ export type ReportType = {
 
 export type CardPropsType = {
   card: ReportType;
-  destaques?: boolean
+  highlights?: boolean
 };

@@ -45,7 +45,7 @@ font-weight: bolder;
   z-index: 1;
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1366px) {
   .header-container {
     height: 100px;
   }

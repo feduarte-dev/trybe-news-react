@@ -83,7 +83,7 @@ O projeto foi cuidadosamente projetado para se adaptar a diferentes resoluções
 
 - **Dispositivos Móveis**: O design responsivo foi otimizado para a resolução de 360 x 800, que é a mais adotada em todo o mundo, tornando a experiência agradável em smartphones.
 
-- **Desktops**: A responsividade foi desenvolvida para resolução de 1920 x 1080, a mais comum entre usuários de PC, garantindo que a experiência seja igualmente agradável em telas maiores.
+- **Desktops**: A responsividade foi desenvolvida para resolução de 1366 x 768, a segunda mais comum entre usuários de PC, a mais comum é de 1920 x 1080, porém acredito que uma menor resolução torne a aplicação mais inclusiva.
 
 Essa abordagem de design responsivo visa atender às necessidades da maioria dos usuários, independentemente do dispositivo que eles estejam usando, garantindo assim uma experiência consistente e satisfatória.
 

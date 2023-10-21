@@ -14,10 +14,11 @@ type NewsContextType = {
   isFavoriteTab: boolean;
   toggleList: () => void;
   isList: boolean;
-  infiniteScroll: () => void
-  changeTheme: () => void
-  isDark: boolean
-
+  infiniteScroll: () => void;
+  changeTheme: () => void;
+  isDark: boolean;
+  scrollToTop:() => void;
+  isVisible: boolean;
 };
 
 const NewsContext = createContext({} as NewsContextType);

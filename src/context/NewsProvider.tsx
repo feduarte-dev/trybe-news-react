@@ -7,13 +7,14 @@ import { readInitialTheme, saveTheme } from '../services/localStorage';
 function NewsProvider({ children }: NewsProviderProps) {
   const [originalCardsList, setOriginalCardsList] = useState<ReportType[]>([]);
   const [cardsList, setCardsList] = useState<ReportType[]>([]);
-  const [visibleCards, setVisibleCards] = useState<number>(4);
+  const [visibleCards, setVisibleCards] = useState<number>(3);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isFavoriteTab, setIsFavoriteTab] = useState<boolean>(false);
   const [isList, setIsList] = useState<boolean>(false);
   const [isDark, setIsDark] = useState(readInitialTheme());
+  const [isVisible, setIsVisible] = useState(false);
 
-  // Função para buscar na API
+  // Function to get API
   const fetchAPI = async (URL: string) => {
     const result = await getApi(URL);
     setOriginalCardsList(result);
@@ -21,19 +22,19 @@ function NewsProvider({ children }: NewsProviderProps) {
     setIsLoading(false);
   };
 
-  // Define a renderização das noticias em lista ou cards
+  // Defines the rendering of news in list or cards
   const toggleList = () => {
     setIsList((preIsList) => !preIsList);
   };
 
-  // Reescreve o retorno das imagens da API para o formato adequado
+  // Rewrites the images returned from the API to the proper format
   const transformImg = (imgJson: string) => {
     const jsonObj = JSON.parse(imgJson);
     const imgURL = jsonObj.image_intro;
     return `https://agenciadenoticias.ibge.gov.br/${imgURL}`;
   };
 
-  // Reescreve o retorno das datas de publicação da API para o formato adequado
+  // Rewrites the publish dates returned from the API the proper format
   function transformDate(date: string) {
     const splitDate = date.split('/');
     const formattedDate = `${splitDate[1]}/${splitDate[0]}/${splitDate[2]}`;
@@ -46,7 +47,7 @@ function NewsProvider({ children }: NewsProviderProps) {
     return resultString;
   }
 
-  // Filtra o retorno da API com base no botão clicado
+  // Filters the API return based on the button clicked
   const handleNavbarClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
 
@@ -55,28 +56,28 @@ function NewsProvider({ children }: NewsProviderProps) {
     switch (target.innerText) {
       case 'Mais Recentes':
         setCardsList(originalCardsList.slice(4, -1));
-        setVisibleCards(4);
+        setVisibleCards(3);
         setIsFavoriteTab(false);
         break;
       case 'Releases':
         filteredCards = originalCardsList
           .filter((card) => card.tipo === 'Release').slice(4, -1);
         setCardsList(filteredCards);
-        setVisibleCards(4);
+        setVisibleCards(3);
         setIsFavoriteTab(false);
         break;
       case 'Notícias':
         filteredCards = originalCardsList
           .filter((card) => card.tipo === 'Notícia').slice(4, -1);
         setCardsList(filteredCards);
-        setVisibleCards(4);
+        setVisibleCards(3);
         setIsFavoriteTab(false);
         break;
       case 'Favoritos':
         setCardsList(
           JSON.parse(localStorage.getItem('Favorite News') as string),
         );
-        setVisibleCards(4);
+        setVisibleCards(3);
         setIsFavoriteTab(true);
         break;
       default:
@@ -84,7 +85,7 @@ function NewsProvider({ children }: NewsProviderProps) {
     }
   };
 
-  // Alterna entre os temas claro e escuro
+  // Toggle between light and dark themes
   const changeTheme = () => {
     setIsDark((prevTheme) => {
       const newTheme = !prevTheme;
@@ -93,18 +94,36 @@ function NewsProvider({ children }: NewsProviderProps) {
     });
   };
 
-  // Renderiza mais notícias de acordo com o scroll do mouse
+  // Observe the page height to render the scrollToTop button
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  // When clicking the button the page returns to the top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  // Renders more news according to mouse scroll
   const infiniteScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop
         === document.documentElement.offsetHeight
     ) {
-      const newVisibleCards = visibleCards + 4;
+      const newVisibleCards = visibleCards + 3;
       setVisibleCards(newVisibleCards);
     }
   };
 
   window.addEventListener('scroll', infiniteScroll);
+  window.addEventListener('scroll', handleScroll);
 
   const context = {
     originalCardsList,
@@ -122,6 +141,8 @@ function NewsProvider({ children }: NewsProviderProps) {
     infiniteScroll,
     changeTheme,
     isDark,
+    scrollToTop,
+    isVisible,
   };
 
   return (

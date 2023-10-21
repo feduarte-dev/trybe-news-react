@@ -7,7 +7,7 @@ import NewsContext from '../context/NewsContext';
 import { CardPropsType, ReportType } from '../types';
 import { readFavoriteNews, saveFavoriteNews } from '../services/localStorage';
 
-function Card({ card, destaques }: CardPropsType) {
+function Card({ card, highlights }: CardPropsType) {
   const { transformDate, setCardsList, isFavoriteTab, isList } = useContext(NewsContext);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -16,7 +16,7 @@ function Card({ card, destaques }: CardPropsType) {
     setIsFavorite(favoriteNews.some((report) => report.id === card.id));
   }, [card]);
 
-  // Adiciona e remove dos favoritos, se estiver na aba de favoritos, atualiza na hora
+  // Add and remove from favorites, if it is in the favorites tab, it updates instantly
   const setFavoriteNews = (favReport: ReportType) => {
     setIsFavorite((prevIsFavorite) => !prevIsFavorite);
     const favoriteNews = readFavoriteNews();
@@ -39,7 +39,7 @@ function Card({ card, destaques }: CardPropsType) {
       className={ isList ? 'list card-container' : 'card-container' }
       data-testid="cardContainer"
     >
-      {destaques && (
+      {highlights && (
         <p className="highlights">Destaques</p>
       )}
       <h3>{card.titulo}</h3>
@@ -59,7 +59,7 @@ function Card({ card, destaques }: CardPropsType) {
             Leia mais
           </a>
         </Button>
-        <label htmlFor={ card.titulo } data-testid="favBtn">
+        <label htmlFor={ card.titulo } data-testid="favLabel">
           <input
             className="fav-input"
             type="checkbox"
@@ -68,6 +68,7 @@ function Card({ card, destaques }: CardPropsType) {
             checked={ isFavorite }
           />
           <img
+            data-testid="favBtn"
             className="fav-icon"
             src={ isFavorite ? filledHeart : emptyHeart }
             alt="favorite"
@@ -75,7 +76,7 @@ function Card({ card, destaques }: CardPropsType) {
         </label>
       </div>
 
-      {!destaques && (
+      {!highlights && (
         <hr />
       )}
 
