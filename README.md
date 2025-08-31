@@ -1,133 +1,124 @@
 # Trybe App
-Esse é um projeto criado com as principais tecnologias utilizadas no módulo de front-end da [Trybe](https://betrybe.com/).
+
+This project was built using the main technologies taught in the front-end module at [Trybe](https://betrybe.com/).
 
 <img src="src/assets/desktop-dark-print.png" alt="desktop dark" title="desktop dark" width=100%>
-<br>
-<br>
+<br><br>
 <img src="src/assets/desktop-light-print.png" alt="desktop light" title="desktop light" width=100%>
-<br>
-<br>
+<br><br>
 <p float="left">
 <img src="src/assets/mobile-light-print.png" alt="mobile light" title="mobile light" width=49%>
-<img src="src/assets/mobile-dark-print.png" alt="mobile dark" title="mobile dark" 
-width=49%>
+<img src="src/assets/mobile-dark-print.png" alt="mobile dark" title="mobile dark" width=49%>
+</p>
 
-## Link da aplicação
-[Trybe News - Uma aplicação em React](https://feduarte-trybe-news.vercel.app/)
+## Live Demo
 
+[Trybe News – A React Application](https://feduarte-trybe-news.vercel.app/)
 
-## Instalação
+## Installation
 
-Para executar esta aplicação, siga os passos abaixo:
+To run this application locally, follow these steps:
 
-1. Faça um clone do repositório:
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/feduarte-dev/trybe-news-react
    ```
 
-2. Navegue para o diretório do projeto:
+2. Navigate to the project directory:
 
    ```bash
-   cd seu-repositorio
+   cd your-repository
    ```
 
-3. Instale as dependências usando o npm (Node Package Manager):
+3. Install the dependencies using npm:
 
    ```bash
    npm install
    ```
 
-4. Inicie a aplicação:
+4. Start the application:
 
    ```bash
    npm run dev
    ```
 
+## Contributing
 
-## Contribuição
+Contributions are welcome! If you’d like to help improve this project, follow these steps:
 
-Estou aberto a contribuições para melhorar este projeto. Se você deseja contribuir, siga estes passos:
+1. Fork the repository.
 
-1. Faça um fork do repositório.
-
-2. Crie uma branch para a sua contribuição:
-
-   ```bash
-   git checkout -b minha-contribuicao
-   ```
-
-3. Faça as alterações necessárias e adicione os commits.
-
-4. Envie as alterações para o seu fork:
+2. Create a new branch for your contribution:
 
    ```bash
-   git push origin minha-contribuicao
+   git checkout -b my-contribution
    ```
 
-5. Crie um pull request para a branch principal do projeto.
+3. Make your changes and commit them.
 
-<h3 align=center > Ou então entre em contato comigo!! </h4>
+4. Push your branch to your fork:
+
+   ```bash
+   git push origin my-contribution
+   ```
+
+5. Open a pull request to the main branch of this project.
+
+<h3 align="center"> Or feel free to reach out to me directly! </h3>
 
 ## Issues
 
-Se você encontrar problemas ou tiver sugestões para melhorias, sinta-se à vontade para abrir uma **issue** no repositório. Certifique-se de fornecer informações detalhadas para que eu entenda o problema ou a sugestão e trabalhar para resolvê-lo.
+If you encounter bugs or have suggestions for improvements, feel free to open an **issue** in the repository. Please provide detailed information so I can understand and address the problem or suggestion effectively.
 
+## Project Gist
 
-## Gist do Projeto
-Confira [esse link](https://gist.github.com/feduarte-dev/fdeed18cce3fc52fbf74e299b370923a).
+Check out [this link](https://gist.github.com/feduarte-dev/fdeed18cce3fc52fbf74e299b370923a).
 
-## Responsividade
+## Responsiveness
 
-O projeto foi cuidadosamente projetado para se adaptar a diferentes resoluções de tela, proporcionando uma experiência de usuário excepcional em qualquer dispositivo. Levei em consideração as seguintes resoluções de referência:
+This project was carefully designed to adapt to different screen resolutions, ensuring a great user experience across devices. I considered the following reference resolutions:
 
-- **Dispositivos Móveis**: O design responsivo foi otimizado para a resolução de 360 x 800, que é a mais adotada em todo o mundo, tornando a experiência agradável em smartphones.
+* **Mobile Devices**: Optimized for 360 x 800 resolution, one of the most widely used worldwide, making the app enjoyable on smartphones.
+* **Desktops**: Built for 1366 x 768 resolution, the second most common among PC users. While 1920 x 1080 is the most common, I chose to optimize for a smaller resolution to make the app more inclusive.
 
-- **Desktops**: A responsividade foi desenvolvida para resolução de 1366 x 768, a segunda mais comum entre usuários de PC, a mais comum é de 1920 x 1080, porém acredito que uma menor resolução torne a aplicação mais inclusiva.
+This responsive design approach aims to serve most users regardless of their device, ensuring a consistent and satisfying experience.
 
-Essa abordagem de design responsivo visa atender às necessidades da maioria dos usuários, independentemente do dispositivo que eles estejam usando, garantindo assim uma experiência consistente e satisfatória.
-
-**Fonte**: [Estatísticas de Resolução de Tela](https://gs.statcounter.com/screen-resolution-stats/mobile/worldwide)
+**Source**: [Screen Resolution Statistics](https://gs.statcounter.com/screen-resolution-stats/mobile/worldwide)
 
 ## Redux vs Context
-Para o gerenciamento de estado neste projeto, optei pelo uso do Context em vez do Redux. Dada a natureza do projeto e seu tamanho, o Context se mostrou uma escolha eficaz, evitando a complexidade adicional do Redux. Isso me permitiu compartilhar dados entre componentes de forma limpa e eficaz, mantendo o código organizado e de fácil manutenção.
 
-## Tecnologias Utilizadas
-Este projeto utiliza uma variedade de tecnologias modernas para fornecer uma experiência de usuário excepcional:
+For state management, I chose **Context** instead of **Redux**. Considering the project’s size and scope, Context provided a simpler and more effective solution, avoiding the added complexity of Redux. It allowed clean and efficient data sharing across components while keeping the code organized and easy to maintain.
 
-- **React**: Biblioteca JavaScript amplamente usada para criar interfaces de usuário interativas.
+## Technologies Used
 
-- **Vite**: Ambiente de desenvolvimento rápido e eficiente para projetos front-end.
+This project leverages a variety of modern tools and technologies to deliver a great user experience:
 
-- **RTL (React Testing Library)**: Ferramenta essencial para testar componentes React de forma eficaz.
+* **React**: Widely used JavaScript library for building interactive UIs.
+* **Vite**: Fast and efficient front-end build tool.
+* **RTL (React Testing Library)**: Essential for effectively testing React components.
+* **Bootstrap**: Popular CSS framework for fast UI design.
+* **Infinite Scroll**: Component to render more items dynamically as the user scrolls.
+* **Figma**: Collaborative UI design tool used to bring the project to life.
+* **Context API**: Native React solution for sharing data across components.
+* **CSS**: Styling language for web pages.
+* **TypeScript**: JavaScript superset that adds static typing and advanced features.
+* **ESLint**: Linting tool to maintain code quality and consistency.
 
-- **Bootstrap**: Popular framework CSS que acelera o design de interfaces web.
+## Additional Features
 
-- **Infinite Scroll** Componente para renderizar mais itens de acordo com a altura do documento.
+In addition to the features requested in the Project Gist, I enhanced the user experience with the following:
 
-- **Figma**: Ferramenta de design de interface de usuário colaborativa que ajudou a dar vida ao projeto.
+* **Image Carousel**: Added a carousel to highlight featured content, making the page more dynamic and engaging.
+* **Infinite Scrolling**: Eliminated the need to click buttons to load more news — users can simply scroll for more content.
+* **Light & Dark Mode**: Provided theme switching for improved user interaction and customization.
+* **Back to Top Button**: Added a button to quickly return to the top of the page.
 
-- **Context**: Funcionalidade nativa do React para compartilhamento de dados entre componentes.
+## Contact
 
-- **CSS**: Linguagem de estilo usada para estilizar as páginas web.
+[GitHub](https://github.com/feduarte-dev) ·
+[LinkedIn](https://www.linkedin.com/in/feduarte-dev/)
 
-- **TypeScript**: Extensão do JavaScript que oferece tipagem estática e recursos adicionais de linguagem.
+---
 
-- **ESlint**: Ferramenta de linting usada para manter a qualidade e consistência do código JavaScript.
-
-## Funcionalidades Adicionais
-Além das funcionalidades solicitadas no Gist do Projeto, decidi aprimorar a experiência do usuário com as seguintes adições:
-
-- **Carrossel de Imagens**: Adicionei um carrossel de imagens aos destaques, tornando a página mais interativa e atraente.
-
-- **Rolagem Infinita**: Implementei a funcionalidade de rolagem infinita, eliminando a necessidade de clicar em botões para carregar mais notícias. Agora, os usuários podem simplesmente rolar a página para obter mais conteúdo.
-
-- **Modo Claro e Escuro**: Introduzi opções de modo claro e escuro para aprimorar a qualidade da interação do usuário, permitindo que eles escolham a aparência que preferem.
-
-- **Botão back to top**: Adicionei um botão para a tela subir quando o usuário estiver desccendo a tela.
-
-## Contato
-[Github](https://github.com/feduarte-dev) -
-[Linkedin](https://www.linkedin.com/in/feduarte-dev/)
-
-
+Quer que eu deixe esse README mais **clean e resumido** (estilo de projetos open-source no GitHub) ou prefere manter esse formato bem **detalhado e explicativo**?
